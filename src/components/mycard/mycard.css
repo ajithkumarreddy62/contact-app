@@ -1,0 +1,5 @@
+.cardstyle {
+  background-color: white;
+  display: flex;
+  justify-content: left;
+}

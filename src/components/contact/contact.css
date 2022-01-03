@@ -1,0 +1,50 @@
+.contact_main {
+  width: 100%;
+}
+.contact_main .contact_avatar {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.contact_main .contact_header {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  margin-left: 4px;
+  margin-right: 4px;
+  font-size: 85%;
+}
+
+.content2 {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  font-size: 35px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.icons_group {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.content3 {
+  width: 100%;
+  color: blue;
+  display: flex;
+  justify-content: left;
+  font-size: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.content5 {
+  margin-left: 15px;
+  margin-right: 15px;
+}

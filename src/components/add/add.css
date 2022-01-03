@@ -1,0 +1,46 @@
+.add_class {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.add_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 60px;
+}
+
+.add_header .cancel_button {
+  border-radius: 20px;
+  text-transform: none;
+  font-size: 85%;
+  min-height: 8px;
+  min-width: 80px;
+}
+
+.add_header .done_button {
+  border-radius: 20px;
+  text-transform: none;
+  font-size: 85%;
+  min-height: 8px;
+  min-width: 80px;
+}
+
+.newcontact {
+  margin-left: 3px;
+}
+
+.object .object1 {
+  display: flex;
+  justify-content: center;
+}
+
+.input_sizing {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.input_width {
+  width: 100%;
+}

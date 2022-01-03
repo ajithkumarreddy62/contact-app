@@ -1,0 +1,30 @@
+.root {
+  background-color: white;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 60px;
+  margin-left: 18px;
+}
+
+.header .new_button {
+  border-radius: 30px;
+  text-transform: none;
+  font-size: 85%;
+  min-height: 8px;
+  min-width: 110px;
+}
+
+.header .search_icon {
+  display: flex;
+  justify-content: right;
+  margin-right: 18px;
+}
+
+.contacts_icon {
+  margin-left: 18px;
+  margin-bottom: 15px;
+}
