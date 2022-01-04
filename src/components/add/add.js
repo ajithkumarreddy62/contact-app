@@ -11,7 +11,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 function AddPage() {
 
-    const [contacts, setContacts] = useState([]);
+    const storedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+    const [contacts, setContacts] = useState(storedContacts);
+
     const [firstname, setFirst] = useState("");
     const [lastname, setLast] = useState("");
     const [company, setCompany] = useState("");
@@ -85,23 +87,25 @@ function AddPage() {
         e.preventDefault();
         const isValid = handleValidate();
         if (isValid) {
-            setContacts([
-                ...contacts,
-                {
-                    id: contacts.length + 1,
-                    first: firstname.trim(),
-                    last: lastname.trim(),
-                    company: company.trim(),
-                    phone: phone.trim(),
-                    email: email.trim()
-                }
-            ]);
-            setFirst("");
-            setLast("");
-            setCompany("");
-            setPhone("");
-            setEmail("");
-            setAddOpen(true);
+            if (contacts) {
+                setContacts([
+                    ...contacts,
+                    {
+                        id: contacts.length + 1,
+                        first: firstname.trim(),
+                        last: lastname.trim(),
+                        company: company.trim(),
+                        phone: phone.trim(),
+                        email: email.trim()
+                    }
+                ]);
+                setFirst("");
+                setLast("");
+                setCompany("");
+                setPhone("");
+                setEmail("");
+                setAddOpen(true);
+            }
         }
     }
 
@@ -114,10 +118,7 @@ function AddPage() {
         setEmail("");
     };
 
-    //For accessing data from local storage to state concurrently
-    useEffect(() => {
-        setContacts(JSON.parse(window.localStorage.getItem("contacts")));
-    }, []);
+
 
     //For storing the data in local storage
     useEffect(() => {

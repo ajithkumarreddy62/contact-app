@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './contacts.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,17 +23,9 @@ function Contacts() {
 
     const navigate = useNavigate();
 
-    const [contacts] = useState(() => {
+    const storedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
-        const contacts = localStorage.getItem("contacts");
-
-        if (contacts) {
-            return JSON.parse(contacts);
-        } else {
-            return [];
-        }
-
-    });
+    const [contacts, setContacts] = useState(storedContacts);
 
     const handleClickOpen = (contact) => {
         navigate('/contact', { state: contact });

@@ -5,6 +5,7 @@ import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import { Button } from '@mui/material';
 
 function Header() {
     return (
@@ -12,7 +13,10 @@ function Header() {
 
             <div className='header'>
                 <div>
-                    <Chip className="new_button" label="New" color="primary" component={Link} to="/add" />
+                    <Button className="new_button" variant="contained" component={Link} to="/add">
+                        New
+
+                    </Button>
                 </div>
 
                 <div>
