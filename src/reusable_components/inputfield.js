@@ -1,4 +1,5 @@
 import React from "react";
+import './inputfield.css';
 import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 
@@ -6,7 +7,7 @@ const InputField = ({ value, label, type, onChange }) => {
 
     return (
         <div className="form-group">
-            <TextField style={{ width: 300 }} label={label} id="outlined-required" type={type} value={value} onChange={onChange} autoComplete="off" />
+            <TextField className="inputstyle" label={label} id="outlined-required" type={type} value={value} onChange={onChange} autoComplete="off" />
         </div>
     )
 

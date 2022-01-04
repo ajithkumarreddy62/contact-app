@@ -1,0 +1,15 @@
+.dividerstyle {
+  margin-top: 7px;
+}
+
+.content .listitem {
+  width: 100%;
+  height: 50px;
+}
+
+.content .subheader {
+  padding-left: 30px;
+  color: blue;
+  font-weight: bolder;
+  font-size: 15px;
+}

@@ -1,5 +1,14 @@
-.cardstyle {
+.card_style {
   background-color: white;
   display: flex;
   justify-content: left;
+}
+
+.card_style .mycard_avatar {
+  background-color: blue;
+  color: white;
+}
+
+.card_style .mycard_avatartext {
+  padding-left: 10px;
 }

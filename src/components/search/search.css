@@ -11,8 +11,10 @@
   min-width: 110px;
 }
 
-.search_label {
+.search_class .search_label {
   margin-left: 18px;
+  color: black;
+  font-size: 30px;
 }
 
 .search {
@@ -27,11 +29,9 @@
   font-size: 18px;
   height: 40px;
   width: 100%;
-  border: 2px solid white;
+  border: 0.6px solid blue;
   border-radius: 2px;
   padding: 2px 23px 2px 23px;
-  outline: 0;
-  box-shadow: rgba(18, 28, 179, 0.35) 2px 2px 3px;
 }
 
 .search_input:hover,

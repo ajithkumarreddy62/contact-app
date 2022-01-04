@@ -19,8 +19,6 @@ function SearchPage() {
 
     });
 
-
-
     const [initialContact] = useState([]);
 
     const [search, setSearch] = useState('');
@@ -28,24 +26,22 @@ function SearchPage() {
     const filteredContacts = search.length === 0 ? initialContact : contacts.filter(contact => contact.first.toLowerCase().includes(search.toLowerCase()));
 
     return (
-        <div className="search_main">
 
+        <div className="search_class">
 
             <div className="header">
                 <Chip className="header_button" label="Go Back" color="primary" component={Link} to="/contacts" />
             </div>
 
-
-            <div className="search_label">
-                <Typography style={{ color: "black", fontSize: 30 }}>
+            <div>
+                <Typography className="search_label">
                     Search
                 </Typography>
             </div>
 
-
             <div className="search">
                 <div>
-                    <input autoFocus className="search_input" type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search" style={{ backgroundColor: 'white' }} />
+                    <input autoFocus className="search_input" type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search" />
                 </div>
                 <ContactList contacts={filteredContacts} />
             </div>

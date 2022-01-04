@@ -1,4 +1,5 @@
 import React from 'react';
+import './mycardpage.css';
 import '../contact/contact.css';
 import { List, ListItem } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -14,25 +15,17 @@ function MyCardPage() {
         <div className='mycardheader'>
             <div className="contact_main">
 
-
-
                 <Card className="card_style">
-                    <CardMedia style={{ height: 370 }} image="./profile.jpg">
-                        <div className='contact_header'>
-                            <Chip className="cancel_button" label="Go Back" color="primary" component={Link} to="/contacts" style={{ marginTop: 15, marginLeft: 4 }} >
+                    <CardMedia className='card_media' image="./profile.jpg">
 
-                            </Chip>
+                        <Chip className="cancel_button" label="Go Back" color="primary" component={Link} to="/contacts" />
 
-                        </div>
                     </CardMedia>
                 </Card>
 
                 <div className="content2">
                     <p>Ajith Kumar</p>
                 </div>
-
-
-                <Divider sx={{ borderBottomWidth: 5 }} style={{ marginTop: 15 }} />
 
                 <div className='content3'>
                     <p>Details</p>

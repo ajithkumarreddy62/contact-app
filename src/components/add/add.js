@@ -17,6 +17,7 @@ function AddPage() {
     const [company, setCompany] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+
     //error states
     const [firstError, setFirstError] = useState("");
     const [lastError, setLastError] = useState("");
@@ -26,7 +27,6 @@ function AddPage() {
 
     //add dialog
     const [addOpen, setAddOpen] = React.useState(false);
-
 
     const handleValidate = (e) => {
         const re = /^[A-Za-z]+$/;
@@ -65,7 +65,6 @@ function AddPage() {
             setPhoneError("");
         }
 
-
         if (!regex.test(email)) {
             emailerror = "*Please enter a valid email";
             setEmailError(emailerror);
@@ -81,11 +80,11 @@ function AddPage() {
 
     }
 
+    //Form submission functionality
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = handleValidate();
         if (isValid) {
-
             setContacts([
                 ...contacts,
                 {
@@ -122,7 +121,6 @@ function AddPage() {
         }
     }, []);
 
-
     //For storing the data in local storage
     useEffect(() => {
         localStorage.setItem("contacts", JSON.stringify(contacts));
@@ -130,78 +128,63 @@ function AddPage() {
 
 
     return (
+
         <div className='add_class'>
 
             <div className='add_header'>
                 <div>
                     <Chip className="cancel_button" label="Cancel" color="primary" component={Link} to="/contacts" />
-
                 </div>
 
                 <div>
-                    <Button className="done_button" variant="contained" onClick={resetForm}>
-                        Clear
-                    </Button>
-
-
+                    <Chip className="done_button" label="Clear" color="primary" onClick={resetForm} />
                 </div>
-
-
             </div>
 
             <div className='new_contact'>
-
-                <Typography style={{ color: "black", fontSize: 30 }}>
+                <Typography className='new_contacttext'>
                     New Contact
                 </Typography>
-
-
             </div>
 
-
-
-
-
             <form id='my-form' onSubmit={handleSubmit}>
+
                 <div className="object">
 
                     <div className="object2">
+
                         <div className="input_sizing">
                             <InputField className="input_width" value={firstname} id="firstname" type="text" variant="outlined" label="First Name*" autoComplete='off' onChange={(e) => setFirst(e.target.value)} />
-                            {firstError ? (<div style={{ fontSize: 15, color: 'red' }}>{firstError}</div>
+                            {firstError ? (<div className="errorstyle">{firstError}</div>
                             ) : null}
                         </div>
-
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={lastname} id="lastname" type="text" variant="outlined" label="Last Name*" autoComplete='off' onChange={(e) => setLast(e.target.value)} />
-                            {lastError ? (<div style={{ fontSize: 15, color: 'red' }}>{lastError}</div>
+                            {lastError ? (<div className="errorstyle">{lastError}</div>
                             ) : null}
                         </div>
-
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={company} id="company" type="text" variant="outlined" label="Company*" autoComplete='off' onChange={(e) => setCompany(e.target.value)} />
-                            {companyError ? (<div style={{ fontSize: 15, color: 'red' }}>{companyError}</div>
+                            {companyError ? (<div className="errorstyle">{companyError}</div>
                             ) : null}
                         </div>
-
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={phone} id="phone" type="number" variant="outlined" label="Phone*" autoComplete='off' onChange={(e) => setPhone(e.target.value)} />
-                            {phoneError ? (<div style={{ fontSize: 15, color: 'red' }}>{phoneError}</div>
+                            {phoneError ? (<div className="errorstyle">{phoneError}</div>
                             ) : null}
                         </div>
-
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={email} id="email" type="text" variant="outlined" label="Email*" autoComplete='off' onChange={(e) => setEmail(e.target.value)} />
-                            {emailError ? (<div style={{ fontSize: 15, color: 'red' }}>{emailError}</div>
+                            {emailError ? (<div className="errorstyle">{emailError}</div>
                             ) : null}
                         </div>
 
                         <div className="input_sizing">
-                            <Button variant="contained" type="submit" disabled={!firstname || !lastname || !email || !company || !phone} >Submit</Button>
+                            <Button className="submit_button" variant="contained" type="submit" disabled={!firstname || !lastname || !email || !company || !phone} >Submit</Button>
                         </div>
 
                     </div>
@@ -215,15 +198,11 @@ function AddPage() {
                     Contact created sucessfully
                 </DialogTitle>
                 <DialogActions>
-                    <Button variant="contained" component={Link} to="/contacts" style={{ backgroundColor: 'blue' }}>
+                    <Button className="ok_button" variant="contained" component={Link} to="/contacts">
                         Ok
                     </Button>
-
                 </DialogActions>
             </Dialog>
-
-
-
 
         </div >
     );

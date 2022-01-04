@@ -57,13 +57,12 @@ function ContactPage() {
     const [phoneError, setPhoneError] = useState("");
     const [emailError, setEmailError] = useState("");
 
-
+    //To set the data coming from the list to current state
     useEffect(() => {
         setCurrentContact(location.state);
     }, [location.state])
 
     //Editing fumctionality
-
     const handleEditFirstInputChange = (e) => {
         setCurrentContact({ ...currentContact, first: e.target.value });
     }
@@ -147,16 +146,12 @@ function ContactPage() {
 
 
     const handleUpdateContact = (id, updatedContact) => {
-
-
         const updatedItem = contacts.map((contact) => {
             return contact.id === id ? updatedContact : contact;
         });
         setContacts(updatedItem);
         setOpen(false);
-
     }
-
 
     const handleDeleteClick = (id) => {
         const removeItem = contacts.filter((contact) => {
@@ -166,33 +161,21 @@ function ContactPage() {
         setDelOpen(true);
     }
 
-
     useEffect(() => {
         localStorage.setItem("contacts", JSON.stringify(contacts));
     }, [contacts])
 
-
-
-
-
-
-
     return (
+
         <div className="contact_main">
 
             <div className='contact_header' >
-                <Chip className="cancel_button" label="Contacts" color="primary" component={Link} to="/contacts" style={{ marginTop: 15, marginLeft: 4 }} />
-                <Chip className="cancel_button" label="Edit" onClick={() => handleClickOpen(currentContact)} color="primary" style={{ marginTop: 15, marginLeft: 4 }} />
+                <Chip className="contacts_icon" label="Contacts" color="primary" component={Link} to="/contacts" />
+                <Chip className="edit_icon" label="Edit" onClick={() => handleClickOpen(currentContact)} color="primary" />
             </div>
 
-
-
             <div className='contact_avatar'>
-
-                <Avatar src="/profile.jpg" sx={{ width: 90, height: 90, backgroundColor: 'blue', color: 'white' }} />
-
-
-
+                <Avatar className="contact_avataritem" src="/profile.jpg" />
             </div >
 
             <div className="content2">
@@ -201,31 +184,32 @@ function ContactPage() {
 
             <div className='icons_group'>
                 <div>
-                    <Avatar sx={{ bgcolor: '#bcdfeb', width: 50, height: 50 }}>
+                    <Avatar className="icons_groupavatar">
                         <CallIcon style={{ fill: "blue" }} />
                     </Avatar>
-
                 </div>
+
                 <div>
-                    <Avatar sx={{ bgcolor: '#bcdfeb', width: 50, height: 50 }}>
+                    <Avatar className="icons_groupavatar">
                         <VideoCamIcon style={{ fill: "blue" }} />
                     </Avatar>
-
                 </div>
+
                 <div>
-                    <Avatar sx={{ bgcolor: '#bcdfeb', width: 50, height: 50 }}>
+                    <Avatar className="icons_groupavatar">
                         <SmsIcon style={{ fill: "blue" }} />
                     </Avatar>
-
                 </div>
+
                 <div>
-                    <Avatar sx={{ bgcolor: '#bcdfeb', width: 50, height: 50 }}>
+                    <Avatar className="icons_groupavatar">
                         <MailIcon style={{ fill: "blue" }} />
                     </Avatar>
-
                 </div>
+
             </div>
-            <Divider sx={{ borderBottomWidth: 5 }} style={{ marginTop: 15 }} />
+
+            <Divider className='divider_style' />
 
             <div className='content3'>
                 <p>Details</p>
@@ -246,12 +230,12 @@ function ContactPage() {
             </div>
 
             <div className='content5'>
-                <Button variant="contained" onClick={() => handleDeleteClick(currentContact.id)} fullWidth style={{ textTransform: 'none', backgroundColor: 'blue' }}>
+                <Button className="delete_button" variant="contained" onClick={() => handleDeleteClick(currentContact.id)} fullWidth>
                     Delete Contact
                 </Button>
             </div>
 
-            <Dialog fullWidth maxWidth="sm" open={open} onClose={handleClose}>
+            <Dialog className="edit_dialog" fullWidth maxWidth="sm" open={open} onClose={handleClose}>
                 <DialogTitle>
                     Edit Contact Details
                 </DialogTitle>
@@ -259,66 +243,59 @@ function ContactPage() {
                     <form id="edit_form" onSubmit={handleEditFormSubmit}>
                         <div className="input_sizing">
                             <InputField className="input_width" value={currentContact.first} onChange={handleEditFirstInputChange} id="firstname" type="text" variant="outlined" label="First Name" autoComplete='off' />
-                            {firstError ? (<div style={{ fontSize: 15, color: 'red' }}>{firstError}</div>
+                            {firstError ? (<div className='error_style'>{firstError}</div>
                             ) : null}
                         </div>
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={currentContact.last} onChange={handleEditLastInputChange} id="lastname" type="text" variant="outlined" label="Last Name" autoComplete='off' />
-                            {lastError ? (<div style={{ fontSize: 15, color: 'red' }}>{lastError}</div>
+                            {lastError ? (<div className='error_style'>{lastError}</div>
                             ) : null}
                         </div>
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={currentContact.company} onChange={handleEditCompanyInputChange} id="company" type="text" variant="outlined" label="Company" autoComplete='off' />
-                            {companyError ? (<div style={{ fontSize: 15, color: 'red' }}>{companyError}</div>
+                            {companyError ? (<div className='error_style'>{companyError}</div>
                             ) : null}
                         </div>
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={currentContact.phone} onChange={handleEditPhoneInputChange} id="phone" type="number" variant="outlined" label="Phone" autoComplete='off' />
-                            {phoneError ? (<div style={{ fontSize: 15, color: 'red' }}>{phoneError}</div>
+                            {phoneError ? (<div className='error_style'>{phoneError}</div>
                             ) : null}
                         </div>
 
                         <div className="input_sizing">
                             <InputField className="input_width" value={currentContact.email} onChange={handleEditEmailInputChange} id="email" type="text" variant="outlined" label="Email" autoComplete='off' />
-                            {emailError ? (<div style={{ fontSize: 15, color: 'red' }}>{emailError}</div>
+                            {emailError ? (<div className='error_style'>{emailError}</div>
                             ) : null}
                         </div>
 
                         <div>
-                            <Button variant="contained" type="submit" style={{ backgroundColor: 'blue' }} >Save</Button>
+                            <Button className="save_button" variant="contained" type="submit">Save</Button>
                         </div>
-
                     </form>
                 </DialogContent>
                 <DialogActions>
 
-                    <Button variant="contained" onClick={handleClose} style={{ backgroundColor: 'blue' }}>
+                    <Button className="cancel_button" variant="contained" onClick={handleClose}>
                         Cancel
                     </Button>
                 </DialogActions>
             </Dialog>
 
-            <Dialog fullWidth maxWidth="sm" open={delOpen}>
+            <Dialog className="delete_dialog" fullWidth maxWidth="sm" open={delOpen}>
                 <DialogTitle>
                     Contact deleted sucessfully
                 </DialogTitle>
                 <DialogActions>
-                    <Button variant="contained" component={Link} to="/contacts" style={{ backgroundColor: 'blue' }}>
+                    <Button className="confirm_buton" variant="contained" component={Link} to="/contacts">
                         Ok
                     </Button>
-
                 </DialogActions>
             </Dialog>
 
-
-
-
-
-
-        </div >
+        </div>
     );
 }
 

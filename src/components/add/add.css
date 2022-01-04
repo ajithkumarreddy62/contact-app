@@ -27,8 +27,13 @@
   min-width: 80px;
 }
 
-.newcontact {
+.new_contact {
   margin-left: 3px;
+}
+
+.new_contact .new_contacttext {
+  color: black;
+  font-size: 30px;
 }
 
 .object .object1 {
@@ -41,6 +46,19 @@
   margin-top: 15px;
 }
 
+.errorstyle {
+  color: red;
+  font-size: 14px;
+}
+
 .input_width {
   width: 100%;
+}
+
+.ok_button {
+  background-color: blue;
+}
+
+.input_sizing .submit_button {
+  background-color: blue;
 }

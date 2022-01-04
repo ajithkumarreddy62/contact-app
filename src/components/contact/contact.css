@@ -1,12 +1,6 @@
 .contact_main {
   width: 100%;
 }
-.contact_main .contact_avatar {
-  display: flex;
-  justify-content: center;
-  margin-top: 5%;
-  margin-bottom: 10%;
-}
 
 .contact_main .contact_header {
   display: flex;
@@ -15,6 +9,30 @@
   margin-left: 4px;
   margin-right: 4px;
   font-size: 85%;
+}
+
+.contact_header .contacts_icon {
+  margin-top: 15px;
+  margin-left: 4px;
+}
+
+.contact_header .edit_icon {
+  margin-top: 15px;
+  margin-right: 4px;
+}
+
+.contact_main .contact_avatar {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.contact_main .contact_avataritem {
+  color: white;
+  background-color: blue;
+  width: 90px;
+  height: 90px;
 }
 
 .content2 {
@@ -33,6 +51,11 @@
   margin-left: 15px;
   margin-right: 15px;
 }
+.icons_groupavatar {
+  background-color: #bcdfeb;
+  width: 50px;
+  height: 50px;
+}
 
 .content3 {
   width: 100%;
@@ -47,4 +70,33 @@
 .content5 {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.contact_main .divider_style {
+  margin-top: 15px;
+}
+
+.content5 .delete_button {
+  text-transform: none;
+  background-color: blue;
+  color: white;
+}
+
+.edit_dialog .error_style {
+  color: red;
+  font-size: 15px;
+}
+
+.edit_dialog .save_button {
+  background-color: blue;
+}
+
+.edit_dialog .cancel_button {
+  background-color: blue;
+}
+
+.delete_dialog .confirm_button {
+  background-color: blue;
+  color: white;
+  text-transform: none;
 }

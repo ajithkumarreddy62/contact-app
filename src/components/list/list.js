@@ -24,7 +24,7 @@ function ContactList({ contacts }) {
                 ))}
             </div>
         </div>
-    )
+    );
 
 }
 export default ContactList;

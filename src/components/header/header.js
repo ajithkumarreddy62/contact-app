@@ -8,31 +8,26 @@ import SearchIcon from '@mui/icons-material/Search';
 
 function Header() {
     return (
-
-
         <div className='root'>
+
             <div className='header'>
                 <div>
                     <Chip className="new_button" label="New" color="primary" component={Link} to="/add" />
+                </div>
 
-                </div >
-
-                <div className='search_icon'>
-                    <IconButton component={Link} to="/search">
+                <div>
+                    <IconButton className='search_icon' component={Link} to="/search">
                         <SearchIcon />
                     </IconButton>
                 </div>
+            </div>
 
-            </div >
-
-            <div className='contacts_icon'>
-
-                <Typography style={{ color: "black", fontSize: 30 }}>
+            <div>
+                <Typography className='contacts_icon'>
                     Contacts
                 </Typography>
-
-
             </div>
+
         </div>
 
 
