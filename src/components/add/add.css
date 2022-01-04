@@ -19,12 +19,13 @@
   min-width: 80px;
 }
 
-.add_header .done_button {
+.add_header .clear_button {
   border-radius: 20px;
   text-transform: none;
   font-size: 85%;
   min-height: 8px;
   min-width: 80px;
+  margin-top: 17px;
 }
 
 .new_contact {

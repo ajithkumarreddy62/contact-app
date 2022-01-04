@@ -116,9 +116,7 @@ function AddPage() {
 
     //For accessing data from local storage to state concurrently
     useEffect(() => {
-        if (contacts) {
-            setContacts(JSON.parse(window.localStorage.getItem("contacts")));
-        }
+        setContacts(JSON.parse(window.localStorage.getItem("contacts")));
     }, []);
 
     //For storing the data in local storage
@@ -137,7 +135,7 @@ function AddPage() {
                 </div>
 
                 <div>
-                    <Chip className="done_button" label="Clear" color="primary" onClick={resetForm} />
+                    <Chip className="clear_button" label="Clear" color="primary" onClick={resetForm} />
                 </div>
             </div>
 

@@ -50,25 +50,26 @@ function Contacts() {
             <Divider className="dividerstyle" sx={{ borderBottomWidth: 2 }} />
 
             <div className='content'>
+                {contacts &&
+                    (contacts.map(contact => (
+                        <List>
 
-                {contacts.map(contact => (
-                    <List>
+                            <ListItem className="listitem" onClick={() => handleClickOpen(contact)}>
 
-                        <ListItem className="listitem" onClick={() => handleClickOpen(contact)}>
+                                <ListItemAvatar>
+                                    <Avatar sx={{ width: 38, height: 38 }} style={{
+                                        backgroundColor: randomColor()
+                                    }} />
+                                </ListItemAvatar>
+                                <ListItemText primary={contact.first} />
+                                <ChevronRightIcon />
 
-                            <ListItemAvatar>
-                                <Avatar sx={{ width: 38, height: 38 }} style={{
-                                    backgroundColor: randomColor()
-                                }} />
-                            </ListItemAvatar>
-                            <ListItemText primary={contact.first} />
-                            <ChevronRightIcon />
+                            </ListItem>
+                            <Divider />
 
-                        </ListItem>
-                        <Divider />
-
-                    </List>
-                ))}
+                        </List>
+                    )))
+                }
             </div>
 
         </div>
